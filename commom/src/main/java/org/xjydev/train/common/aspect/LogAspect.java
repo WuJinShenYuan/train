@@ -1,4 +1,4 @@
-package org.xjydev.train.member.aspect;
+package org.xjydev.train.common.aspect;
 
 import cn.hutool.core.util.RandomUtil;
 import com.alibaba.fastjson.JSONObject;
