@@ -1,0 +1,5 @@
+server:
+  port: 8001
+  servlet:
+    # \u4E3A\u4E86\u540E\u7EED\u5B9E\u73B0\u8DEF\u7531\u8F6C\u53D1
+    context-path: "/member"
