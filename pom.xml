@@ -34,6 +34,12 @@
                 <scope>import</scope>
             </dependency>
 
+            <dependency>
+                <groupId>org.xjydev</groupId>
+                <artifactId>common</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+
             <!-- Fastjson是一个用Java编写的JSON处理器（JSON解析器+JSON生成器） -->
             <dependency>
                 <groupId>com.alibaba</groupId>
@@ -48,10 +54,18 @@
                 <version>5.8.27</version>
             </dependency>
 
+            <!-- MyBatis-Spring-Boot-Starter是一个方便的集成解决方案，可以让您快速地在Spring Boot项目中设置和使用MyBatis -->
             <dependency>
-                <groupId>org.xjydev</groupId>
-                <artifactId>common</artifactId>
-                <version>0.0.1-SNAPSHOT</version>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>3.0.3</version>
+            </dependency>
+
+            <!-- MySQL Connector/J是是Java 连接MySQL 的连接器，或称驱动 -->
+            <dependency>
+                <groupId>com.mysql</groupId>
+                <artifactId>mysql-connector-j</artifactId>
+                <version>8.4.0</version>
             </dependency>
         </dependencies>
 
