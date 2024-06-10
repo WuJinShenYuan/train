@@ -2,6 +2,8 @@ package org.xjydev.train.member.service.impl;
 
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
+import org.xjydev.train.common.exception.BusinessException;
+import org.xjydev.train.common.exception.BusinessExceptionEnum;
 import org.xjydev.train.member.domain.Member;
 import org.xjydev.train.member.domain.MemberExample;
 import org.xjydev.train.member.mapper.MemberMapper;
@@ -38,7 +40,7 @@ public class MemberServiceImpl implements MemberService {
         MemberExample memberExample = new MemberExample();
         memberExample.createCriteria().andMobileEqualTo(mobile);
         if (memberMapper.countByExample(memberExample) > 0) {
-            throw new RuntimeException("手机号已注册");
+            throw new BusinessException(BusinessExceptionEnum.MEMBER_MOBILE_EXIST);
         }
 
         Member member = new Member();
