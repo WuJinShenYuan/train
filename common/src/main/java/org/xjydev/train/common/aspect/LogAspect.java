@@ -21,6 +21,9 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
+/**
+ * 日志切面
+ */
 @Aspect
 @Component
 public class LogAspect {

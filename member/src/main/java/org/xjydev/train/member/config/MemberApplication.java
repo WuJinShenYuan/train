@@ -8,6 +8,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.core.env.Environment;
 
+/**
+ * Member服务启动类
+ */
 @SpringBootApplication
 @ComponentScan("org.xjydev")
 @MapperScan("org.xjydev.train.member.mapper")
