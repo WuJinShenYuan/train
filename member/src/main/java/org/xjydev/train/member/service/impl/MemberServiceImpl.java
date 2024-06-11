@@ -4,6 +4,7 @@ import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 import org.xjydev.train.common.exception.BusinessException;
 import org.xjydev.train.common.exception.BusinessExceptionEnum;
+import org.xjydev.train.common.util.SnowflakeUtil;
 import org.xjydev.train.member.domain.Member;
 import org.xjydev.train.member.domain.MemberExample;
 import org.xjydev.train.member.mapper.MemberMapper;
@@ -44,7 +45,7 @@ public class MemberServiceImpl implements MemberService {
         }
 
         Member member = new Member();
-        member.setId(System.currentTimeMillis());
+        member.setId(SnowflakeUtil.getSnowflakeNextId());
         member.setMobile(mobile);
         memberMapper.insert(member);
         return member.getId();
