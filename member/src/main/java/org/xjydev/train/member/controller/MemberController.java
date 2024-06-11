@@ -1,6 +1,7 @@
 package org.xjydev.train.member.controller;
 
 import jakarta.annotation.Resource;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,7 +39,7 @@ public class MemberController {
      * @return 会员ID
      */
     @PostMapping("/register")
-    public CommonResp<Long> register(MemberRegisterReq req) {
+    public CommonResp<Long> register(@Valid MemberRegisterReq req) {
         Long memberId = memberService.register(req.getMobile());
         return ReturnUtil.success("注册成功", memberId);
     }
