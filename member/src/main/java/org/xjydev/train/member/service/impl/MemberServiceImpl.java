@@ -1,5 +1,6 @@
 package org.xjydev.train.member.service.impl;
 
+import cn.hutool.core.util.RandomUtil;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 import org.xjydev.train.common.exception.BusinessException;
@@ -49,6 +50,25 @@ public class MemberServiceImpl implements MemberService {
         member.setMobile(mobile);
         memberMapper.insert(member);
         return member.getId();
+    }
+
+    /**
+     * 生成手机验证码
+     *
+     * @param mobile 手机号
+     * @return 手机验证码
+     */
+    @Override
+    public String createPhoneCode(String mobile) {
+
+        // 生成手机验证码
+        String phoneCode = RandomUtil.randomNumbers(4);
+
+        // TODO: 保存手机验证码到缓存
+
+        // TODO: 发送手机验证码到手机
+
+        return phoneCode;
     }
 
 }

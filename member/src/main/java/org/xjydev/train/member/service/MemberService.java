@@ -5,7 +5,9 @@ package org.xjydev.train.member.service;
  */
 public interface MemberService {
 
-    public int count();
+    int count();
 
-    public long register(String mobile);
+    long register(String mobile);
+
+    String createPhoneCode(String mobile);
 }

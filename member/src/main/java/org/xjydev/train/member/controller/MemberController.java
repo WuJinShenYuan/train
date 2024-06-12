@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.xjydev.train.common.resp.CommonResp;
 import org.xjydev.train.common.util.ReturnUtil;
+import org.xjydev.train.member.req.MemberGetPhoneCodeReq;
 import org.xjydev.train.member.req.MemberRegisterReq;
 import org.xjydev.train.member.service.MemberService;
 
@@ -42,6 +43,18 @@ public class MemberController {
     public CommonResp<Long> register(@Valid MemberRegisterReq req) {
         Long memberId = memberService.register(req.getMobile());
         return ReturnUtil.success("注册成功", memberId);
+    }
+
+    /**
+     * 获取手机验证码
+     *
+     * @param req 获取手机验证码请求参数
+     * @return 手机验证码
+     */
+    @PostMapping("/get-phone-code")
+    public CommonResp<String> getPhoneCode(@Valid MemberGetPhoneCodeReq req) {
+        String phoneCode = memberService.createPhoneCode(req.getMobile());
+        return ReturnUtil.success("获取成功", phoneCode);
     }
 
 }
