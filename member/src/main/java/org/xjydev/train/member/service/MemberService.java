@@ -1,5 +1,8 @@
 package org.xjydev.train.member.service;
 
+import org.xjydev.train.member.domain.Member;
+import org.xjydev.train.member.resp.MemberLoginOrRegisterResp;
+
 /**
  * Member服务层接口
  */
@@ -9,5 +12,9 @@ public interface MemberService {
 
     long register(String mobile);
 
-    String createPhoneCode(String mobile);
+    String sendPhoneCode(String mobile);
+
+    MemberLoginOrRegisterResp loginOrRegister(String mobile, String phoneCode);
+
+    Member getByMobile(String mobile);
 }

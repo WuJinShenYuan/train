@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.xjydev.train.common.resp.CommonResp;
 import org.xjydev.train.common.util.ReturnUtil;
 import org.xjydev.train.member.req.MemberGetPhoneCodeReq;
+import org.xjydev.train.member.req.MemberLoginOrRegisterReq;
 import org.xjydev.train.member.req.MemberRegisterReq;
+import org.xjydev.train.member.resp.MemberLoginOrRegisterResp;
 import org.xjydev.train.member.service.MemberService;
 
 /**
@@ -53,8 +55,21 @@ public class MemberController {
      */
     @PostMapping("/get-phone-code")
     public CommonResp<String> getPhoneCode(@Valid MemberGetPhoneCodeReq req) {
-        String phoneCode = memberService.createPhoneCode(req.getMobile());
+        String phoneCode = memberService.sendPhoneCode(req.getMobile());
         return ReturnUtil.success("获取成功", phoneCode);
+    }
+
+    /**
+     * 登录或者注册会员
+     *
+     * @param req 登录或注册请求参数
+     * @return 验证结果
+     */
+    @PostMapping("/login-or-register")
+    public CommonResp<MemberLoginOrRegisterResp> loginOrRegister(@Valid MemberLoginOrRegisterReq req) {
+        MemberLoginOrRegisterResp result = memberService.loginOrRegister(req.getMobile(), req.getPhoneCode());
+        return ReturnUtil.success("登录或注册成功", result);
+
     }
 
 }

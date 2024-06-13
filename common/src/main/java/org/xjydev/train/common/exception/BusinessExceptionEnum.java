@@ -5,7 +5,9 @@ package org.xjydev.train.common.exception;
  */
 public enum BusinessExceptionEnum {
 
-    MEMBER_MOBILE_EXIST("手机号已注册");
+    MEMBER_MOBILE_EXIST("手机号已注册"),
+    MEMBER_PHONE_CODE_ERROR("手机号或者验证码错误");
+
 
     private String message;
 

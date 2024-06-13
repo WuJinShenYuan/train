@@ -13,6 +13,15 @@ mobile = 233
 POST http://localhost:8000/member/member/get-phone-code
 Content-Type: application/x-www-form-urlencoded
 
-mobile = 13000000000
+mobile = 13000000001
+
+###
+
+POST http://localhost:8000/member/member/login-or-register
+Content-Type: application/x-www-form-urlencoded
+
+mobile = 13000000001
+    &
+phoneCode = 284836
 
 ###

@@ -1,8 +1,7 @@
 server:
   port: 8001
   servlet:
-    # 用于后面实现路由转发
-    context-path: "/member"
+    context-path: "/member"   # 用于后面实现路由转发
 
 # 数据库连接
 spring:
@@ -11,6 +10,29 @@ spring:
     username: train_member
     password: cptbtptq123ASDQW
     driver-class-name: com.mysql.cj.jdbc.Driver
+    # 数据库连接池hikaricp相关配置
+    hikari:
+      auto-commit: true #是否自动提交池中返回的连接，默认值为true，一般是有必要自动提交上一个连接中的事物的，如果为false，那么就需要应用层手动提交事物
+      minimum-idle: 30  #连接池中允许的最小连接数，默认值：10
+      maximum-pool-size: 30  #连接池中允许的最大连接数，默认值：10，建议最大最小连接数指定一样，这样就可以维持连接池中固定连接，避免连接池中有时连接数过少的情况
+      idle-timeout: 30000  #一个连接空闲状态的最大时长（毫秒），超时则被释放（retired），默认值:10分钟
+      pool-name: testHikari  #连接池名称
+      max-lifetime: 1800000  #一个连接的生命时长（毫秒），超时而且没被使用则被释放（retired），默认值:30分钟，建议设置比数据库超时时长少30秒，数据库断开空闲连接的超时时长默认8小时
+      connection-timeout: 30000  #等待连接池分配连接的最大时长（毫秒），超过这个时长还没可用的连接则发生SQLException， 默认值:30秒
+      connection-test-query: SELECT 1  #数据库连接测试语句， ping的形式更高效，ping的形式验证连接只能通过超时进行验证，也就是需要在url（spring.datasource.url）中指定参数 socketTimeout=250 ,并将该配置注释
+      validation-timeout: 5000  #数据库连接被测试存活的最长时间（毫秒），默认值：5秒
+  data:
+    # Redis配置
+    redis:
+      host: localhost
+      port: 6379
+      database: 1 # Redis数据库索引
+      # Redis连接池配置
+      lettuce:
+        pool:
+          max-idle: 16  # 连接池中的最大空闲连接，默认值是8
+          min-idle: 8 # 连接池中的最小空闲连接，默认值是0
+          max-active: 32  # 连接池最大连接数（使用负值表示没有限制），默认值是8
 
 # mybatis xml路径
 mybatis:
